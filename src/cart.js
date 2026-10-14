@@ -3,6 +3,12 @@ function notImplemented() {
 }
 
 function addToCart(cart, product, count) {
+  if (count <= 0) {
+    throw new RangeError('count <= 0');
+  }
+  if (count > product.stock) {
+    throw new RangeError('count > stock');
+  }
   if (cart.find((item) => item.id === product.id)) {
     cart.find((item) => item.id === product.id).quantity += count;
     return cart;
