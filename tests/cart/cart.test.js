@@ -47,7 +47,7 @@ describe('changeQuantity', () => {
     expect(changeQuantity(cart, 999, 2)).toEqual(cart);
   });
 });
-/*
+
 describe('removeFromCart', () => {
   test('удаляет выбранный товар', () => {
     const cart = [
@@ -66,7 +66,7 @@ describe('removeFromCart', () => {
     expect(removeFromCart(cart, 999)).toEqual(cart);
   });
 });
-
+/*
 describe('calculateCartSubtotal', () => {
   test('возвращает ноль для пустой корзины', () => {
     expect(calculateCartSubtotal([])).toBe(0);
