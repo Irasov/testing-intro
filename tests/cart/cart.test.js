@@ -66,7 +66,7 @@ describe('removeFromCart', () => {
     expect(removeFromCart(cart, 999)).toEqual(cart);
   });
 });
-/*
+
 describe('calculateCartSubtotal', () => {
   test('возвращает ноль для пустой корзины', () => {
     expect(calculateCartSubtotal([])).toBe(0);
@@ -131,4 +131,4 @@ describe('calculateOrderTotal', () => {
       total: 79900,
     });
   });
-});*/
+});
