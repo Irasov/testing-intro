@@ -27,7 +27,7 @@ describe('addToCart', () => {
     expect(() => addToCart([], lamp, 4)).toThrow(RangeError);
   });
 });
-/*
+
 describe('changeQuantity', () => {
   const cart = [{ ...headphones, quantity: 1 }];
 
@@ -47,7 +47,7 @@ describe('changeQuantity', () => {
     expect(changeQuantity(cart, 999, 2)).toEqual(cart);
   });
 });
-
+/*
 describe('removeFromCart', () => {
   test('удаляет выбранный товар', () => {
     const cart = [

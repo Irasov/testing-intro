@@ -16,8 +16,13 @@ function addToCart(cart, product, count) {
   cart.push({ ...product, quantity: count });
   return cart;
 }
-function changeQuantity() {
-  return notImplemented();
+function changeQuantity(cart, id, count) {
+  if (count <= 0) throw new RangeError('count <= 0');
+  const product = cart.find((p) => p.id === id);
+  if (!product) return cart;
+  if (count > product.stock) throw new RangeError('stock < count');
+  product.quantity = count;
+  return cart;
 }
 function removeFromCart() {
   return notImplemented();
