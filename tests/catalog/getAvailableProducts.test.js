@@ -8,12 +8,23 @@ describe('getAvailableProducts', () => {
   });
 
   test('исключает товары с нулевым остатком', () => {
-    const catalog = [{ id: 1, stock: 2 }, { id: 2, stock: 0 }, { id: 3, stock: 5 }];
-    expect(getAvailableProducts(catalog)).toEqual([{ id: 1, stock: 2 }, { id: 3, stock: 5 }]);
+    const catalog = [
+      { id: 1, stock: 2 },
+      { id: 2, stock: 0 },
+      { id: 3, stock: 5 },
+    ];
+    expect(getAvailableProducts(catalog)).toEqual([
+      { id: 1, stock: 2 },
+      { id: 3, stock: 5 },
+    ]);
   });
 
   test('сохраняет порядок доступных товаров', () => {
-    const catalog = [{ id: 3, stock: 4 }, { id: 1, stock: 2 }, { id: 2, stock: 0 }];
+    const catalog = [
+      { id: 3, stock: 4 },
+      { id: 1, stock: 2 },
+      { id: 2, stock: 0 },
+    ];
     expect(getAvailableProducts(catalog).map((product) => product.id)).toEqual([3, 1]);
   });
 
@@ -22,7 +33,12 @@ describe('getAvailableProducts', () => {
   });
 
   test('возвращает пустой массив, если все товары закончились', () => {
-    expect(getAvailableProducts([{ id: 1, stock: 0 }, { id: 2, stock: 0 }])).toEqual([]);
+    expect(
+      getAvailableProducts([
+        { id: 1, stock: 0 },
+        { id: 2, stock: 0 },
+      ]),
+    ).toEqual([]);
   });
 
   test('не считает нулевой остаток доступным', () => {
@@ -30,9 +46,15 @@ describe('getAvailableProducts', () => {
   });
 
   test('не меняет исходный массив', () => {
-    const catalog = [{ id: 1, stock: 2 }, { id: 2, stock: 0 }];
+    const catalog = [
+      { id: 1, stock: 2 },
+      { id: 2, stock: 0 },
+    ];
     getAvailableProducts(catalog);
-    expect(catalog).toEqual([{ id: 1, stock: 2 }, { id: 2, stock: 0 }]);
+    expect(catalog).toEqual([
+      { id: 1, stock: 2 },
+      { id: 2, stock: 0 },
+    ]);
   });
 
   test('возвращает новый массив', () => {
